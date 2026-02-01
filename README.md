@@ -13,7 +13,7 @@ Diese README-Datei dient als INSTALLATIONSANLEITUNG
 
 
 Voraussetzungen für beide Methoden:
-Python 3.10+ muss auf dem System installiert sein!!
+Python 3.10+ muss auf dem Windows System installiert sein!!
 Projektdateien müssen lokal im Projektverzeichnis liegen
 
 Es gibt zwei Methoden für die Installation des Programms unter Windows:
@@ -21,11 +21,11 @@ Es gibt zwei Methoden für die Installation des Programms unter Windows:
 1. ######### Automatisch #########
 - Projektverzeichnis im Explorer öffnen
 
-- "01-installer.bat" durch Doppeklick ausführen
+- "01-installer.bat" durch Doppelklick ausführen
 	...warten.
 
-- "02-run.bat" durch Doppeklick ausführen
-	User Input promps beantworten.
+- "02-run.bat" durch Doppelklick ausführen
+	User Input Prompts beantworten.
 	...warten.
 
 
