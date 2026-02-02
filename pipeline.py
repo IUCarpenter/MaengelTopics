@@ -17,6 +17,8 @@ MIN_WORDS = 3                   # Mindestwoerter damit Mangel zaehlt
 TOP_N = 10                      # Top-Woerter pro Thema/Cluster fuer Ausgabe
 
 
+
+
 class MaengelJson:
     """
     Holt den Spalte mit key "description" aus JSON Datei
@@ -45,6 +47,18 @@ class Cleaning:
     NONLETTER_RE = re.compile(r"[^a-zA-ZäöüÄÖÜß\s]")
     MULTISPACE_RE = re.compile(r"\s+")
 
+    manual_stop = [
+    "bitte", "hallo", "danke", "sorry", "entschuldigung", "links", "rechts",
+    "sehr", "geehrte", "geehrter", "geehrt", "rum", "ost", "west", "bereich",
+    "freundlich", "freundliche", "freundlichen", "gruß", "grüße", "gruesse",
+    "mit", "mfg", "ihr", "ihre", "ihren", "ihrer", "euer", "eure", "euren", "eurer",
+    "herr", "herren", "frau", "dame", "damen", "danke", "dank", "hausnummer",
+    "mal", "einfach", "halt", "eben", "auch", "noch", "schon", "nur", "ja", "nee",
+    "dann", "bitten", "vielleicht", "irgendwie", "max", "richtung", "einfach",
+    "woche", "wochen", "tag", "tage", "monate", "seit", "immer", "heute", "gestern",
+    "stadt", "jena", "monat"
+    ]
+
     def __init__(self, min_words=3):
         self.min_words = min_words
 
@@ -55,6 +69,8 @@ class Cleaning:
             t = self.URL_RE.sub(" ", t)
             t = self.NONLETTER_RE.sub(" ", t)
             t = self.MULTISPACE_RE.sub(" ", t).strip()
+            t = " ".join(w for w in t.split() if w not in self.manual_stop)
+            
             if len(t.split()) >= self.min_words:
                 clean.append(t)
         return clean
